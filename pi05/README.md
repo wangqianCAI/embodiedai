@@ -3,7 +3,7 @@
 ## 数据
 
 实验使用 50 段、21,538 帧、15 FPS 的 LeRobot v3 数据，包含 `observation.images.front`、`observation.images.top`、`observation.state` 和 `action`。
-两路图像均为 640×480；状态与动作为 6 维，顺序为 shoulder_pan、shoulder_lift、elbow_flex、wrist_flex、wrist_roll、gripper。
+两路相机分别为前视与侧视；侧视相机沿用历史数据字段 `observation.images.top`，字段名不代表实际安装方位。两路图像均为 640×480；状态与动作为 6 维，顺序为 shoulder_pan、shoulder_lift、elbow_flex、wrist_flex、wrist_roll、gripper。
 两个物体与碗在各段开始前作小幅随机化放置，示范连续完成两个耳塞入碗。
 新采集可参考 Windows CMD 脚本 `pi05\record.cmd`，先设置自己的端口、标定 ID 和相机编号。脚本的单段 60 秒上限和 15 秒重置时间为发布示例参数，不代表历史示范的精确时长。新采数据总帧数通常不同，需调整训练脚本的固定计数。
 任务文字：
