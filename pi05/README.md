@@ -36,13 +36,12 @@ $SO101_ROOT/datasets/so101_test_001_50ep_instruction_v2_20261012/  数据
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python "$SO101_ROOT/scripts/train_pi05_so101_50ep_instruction_v2_20261012.py"
-# 第一阶段完成 3 轮后，续训至第 7 轮
+# 上一条命令完成后，运行后续训练脚本
 CUDA_VISIBLE_DEVICES=0,1 torchrun --standalone --nnodes=1 --nproc_per_node=2 "$SO101_ROOT/scripts/train_pi05_epoch4to7_dual.py"
 ```
 
-有效 batch 为 4，第一阶段单卡 batch 1 × 累积 4；第二阶段两卡各 batch 1 × 累积 2。
-第一阶段 16,155 次参数更新，第二阶段新增 21,540 次，合计 37,695 次。
-续训保留原学习率调度，未重新开始 warmup；这是一份实际实验复现配置，并非自动搜索得到的最优方案。
+有效 batch 为 4，累计训练 7 个 epoch，共 37,695 次参数更新。
+上述命令按顺序复现实际实验；各脚本保留原学习率调度及检查点逻辑。
 
 ## 服务与本地执行
 

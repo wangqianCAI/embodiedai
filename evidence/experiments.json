@@ -23,8 +23,6 @@
     "placement": "small random changes to object and bowl initial positions across demonstrations",
     "effective_batch_size": 4,
     "epochs": 7,
-    "single_gpu_updates": 16155,
-    "dual_gpu_additional_updates": 21540,
     "total_optimizer_updates": 37695,
     "final_checkpoint": "075383",
     "rtc_enabled_in_last_deployment": false
