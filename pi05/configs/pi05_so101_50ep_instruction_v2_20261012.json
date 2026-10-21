@@ -1,0 +1,87 @@
+{
+  "dataset": {
+    "repo_id": "local/so101_test_001",
+    "root": "/data/so101_pi0/datasets/so101_test_001_50ep_instruction_v2_20261012",
+    "episodes": null,
+    "video_backend": "pyav",
+    "streaming": false,
+    "use_imagenet_stats": false
+  },
+  "policy": {
+    "type": "pi05",
+    "pretrained_path": "/data/so101_pi0/models/pi05_base",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "push_to_hub": false,
+    "input_features": {
+      "observation.images.front": {
+        "type": "VISUAL",
+        "shape": [
+          3,
+          480,
+          640
+        ]
+      },
+      "observation.state": {
+        "type": "STATE",
+        "shape": [
+          6
+        ]
+      },
+      "observation.images.top": {
+        "type": "VISUAL",
+        "shape": [
+          3,
+          480,
+          640
+        ]
+      }
+    },
+    "output_features": {
+      "action": {
+        "type": "ACTION",
+        "shape": [
+          6
+        ]
+      }
+    },
+    "empty_cameras": 1,
+    "max_state_dim": 32,
+    "max_action_dim": 32,
+    "chunk_size": 50,
+    "n_action_steps": 10,
+    "freeze_vision_encoder": true,
+    "train_expert_only": true,
+    "gradient_checkpointing": true,
+    "compile_model": false,
+    "use_relative_actions": false,
+    "optimizer_lr": 2.5e-05,
+    "tokenizer_max_length": 200,
+    "normalization_mapping": {
+      "VISUAL": "IDENTITY",
+      "STATE": "QUANTILES",
+      "ACTION": "QUANTILES"
+    }
+  },
+  "rename_map": {},
+  "output_dir": "/data/so101_pi0/outputs/pi05_so101_50ep_instruction_v2_20261012",
+  "job_name": "pi05_so101_50ep_instruction_v2_20261012",
+  "steps": 64614,
+  "batch_size": 1,
+  "num_workers": 0,
+  "seed": 1000,
+  "save_freq": 21538,
+  "log_freq": 100,
+  "env_eval_freq": 0,
+  "eval_steps": 0,
+  "accelerator": {
+    "mixed_precision": "bf16",
+    "gradient_accumulation": {
+      "steps": 4
+    }
+  },
+  "wandb": {
+    "enable": false
+  },
+  "save_checkpoint_to_hub": false
+}

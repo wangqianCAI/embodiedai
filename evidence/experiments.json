@@ -1,0 +1,37 @@
+{
+  "act": {
+    "episodes": 30,
+    "frames": 8234,
+    "fps": 30,
+    "cameras": [
+      "front"
+    ],
+    "batch_size": 4,
+    "optimizer_updates": 20000,
+    "approx_epochs": 9.715812484819043,
+    "hardware": "RTX 3060 Laptop 6GB"
+  },
+  "pi05": {
+    "episodes": 50,
+    "frames": 21538,
+    "fps": 15,
+    "cameras": [
+      "front",
+      "top"
+    ],
+    "objects": 2,
+    "placement": "small random changes to object and bowl initial positions across demonstrations",
+    "effective_batch_size": 4,
+    "epochs": 7,
+    "single_gpu_updates": 16155,
+    "dual_gpu_additional_updates": 21540,
+    "total_optimizer_updates": 37695,
+    "final_checkpoint": "075383",
+    "rtc_enabled_in_last_deployment": false
+  },
+  "evaluation": "User-supplied demonstration videos; no controlled success-rate benchmark claimed.",
+  "video_sha256": {
+    "act-demo.mp4": "c8e14d1d361f47403f55d9035a0d94a7274ef144526eef2bddd161d48b8862ec",
+    "pi05-demo.mp4": "71540eb1bdd1acae42574c20eb51fe11173d70094d68a0ae224ca63e92551cde"
+  }
+}
